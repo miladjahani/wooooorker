@@ -19,7 +19,7 @@ export function Login() {
       localStorage.setItem('token', 'mock_token');
       navigate('/');
     } else {
-      setError('Invalid credentials');
+      setError('Invalid credentials. (Hint: use admin@admin.com / admin123 for testing)');
     }
   };
 
@@ -27,6 +27,11 @@ export function Login() {
     <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 p-4">
       <div className="max-w-md w-full bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
         <h2 className="text-2xl font-bold text-center mb-6">ورود به سیستم</h2>
+
+        <Alert type="info">
+          جهت تست سیستم از ایمیل <strong>admin@admin.com</strong> و رمز عبور <strong>admin123</strong> استفاده کنید.
+        </Alert>
+
         {error && <Alert type="error">{error}</Alert>}
 
         <form onSubmit={handleSubmit} className="space-y-4">
