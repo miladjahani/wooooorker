@@ -16,19 +16,7 @@ I have successfully implemented a full Production-Ready Cloudflare Subscription 
 
 ## 4. Database
 D1 Schema via Drizzle ORM includes:
-- `users`
-- `roles`
-- `permissions`
-- `role_permissions`
-- `sessions`
-- `plans`
-- `subscriptions`
-- `tokens`
-- `workers`
-- `worker_configs`
-- `audit_logs`
-- `telegram_accounts`
-- `system_settings`
+- `users`, `roles`, `permissions`, `role_permissions`, `sessions`, `plans`, `subscriptions`, `tokens`, `workers`, `worker_configs`, `audit_logs`, `telegram_accounts`, `system_settings`.
 All generated as standard SQLite `0000_*.sql` migrations.
 
 ## 5. Environment Variables
@@ -58,12 +46,20 @@ Configure your bot via BotFather, get the token, and set the webhook to the `app
 npx wrangler secret put TELEGRAM_BOT_TOKEN -c apps/bot/wrangler.toml
 ```
 
-## 10. Deployment
+## 10. Deployment (Optimized for Git -> Cloudflare Pages)
+
+### Frontend (Cloudflare Pages)
+Connect GitHub repo to Cloudflare Pages:
+- **Build command**: `pnpm --filter dashboard run build`
+- **Output directory**: `apps/dashboard/dist`
+- **Root directory**: `/` (to leverage the `pnpm` monorepo structure)
+
+### Backend (Cloudflare Workers)
+Backend and Bot workers can be deployed using `wrangler`:
 ```bash
 pnpm build
 cd apps/worker && pnpm exec wrangler deploy
 cd apps/bot && pnpm exec wrangler deploy
-cd apps/dashboard && npm run build # Then deploy dist/ to Cloudflare Pages
 ```
 
 ## 11. Testing
