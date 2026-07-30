@@ -31,8 +31,10 @@ The frontend is optimized for direct GitHub to Cloudflare Pages deployment.
 1. Go to **Cloudflare Dashboard** -> **Workers & Pages** -> **Create application** -> **Pages** -> **Connect to Git**.
 2. Select this repository.
 3. **Build settings**:
-   - **Framework preset**: Vite
+   - **Framework preset**: `None` *(Do not select Vite, as it may populate incorrect deploy commands for this monorepo)*
    - **Build command**: \`pnpm --filter dashboard run build\`
+   - **Deploy command**: *(Leave blank)*
+   - **Version command**: *(Leave blank)*
    - **Build output directory**: \`apps/dashboard/dist\`
    - **Root directory**: \`/\` (Leave as root to allow pnpm workspace to install shared packages)
 4. Add Environment Variable: `NODE_VERSION` = `20` (or rely on `.node-version` provided in repo).

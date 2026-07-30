@@ -50,7 +50,10 @@ npx wrangler secret put TELEGRAM_BOT_TOKEN -c apps/bot/wrangler.toml
 
 ### Frontend (Cloudflare Pages)
 Connect GitHub repo to Cloudflare Pages:
+- **Framework preset**: `None`
 - **Build command**: `pnpm --filter dashboard run build`
+- **Deploy command**: *(Leave blank)*
+- **Version command**: *(Leave blank)*
 - **Output directory**: `apps/dashboard/dist`
 - **Root directory**: `/` (to leverage the `pnpm` monorepo structure)
 
