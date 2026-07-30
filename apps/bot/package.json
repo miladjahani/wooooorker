@@ -1,0 +1,15 @@
+{
+  "name": "@cf-subscription/bot",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "dependencies": {
+    "hono": "^4.4.7",
+    "drizzle-orm": "^0.30.10",
+    "@cf-subscription/database": "workspace:*",
+    "@cf-subscription/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240529.0",
+    "wrangler": "^3.60.3"
+  }
+}
